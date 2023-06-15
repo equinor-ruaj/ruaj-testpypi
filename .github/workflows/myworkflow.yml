@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  release:
+    types:
+      - published
 
 jobs:
   myjob:
@@ -26,6 +29,7 @@ jobs:
 
       # TODO: publish should be separate job to minimize "permissions: id-token: write" scope
       - name: publish
+        if: github.event_name == "release"
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           repository-url: https://test.pypi.org/legacy/
