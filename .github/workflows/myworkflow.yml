@@ -24,6 +24,7 @@ jobs:
           python -m pip install --upgrade build
           python -m build
 
+      # TODO: publish should be separate job to minimize "permissions: id-token: write" scope
       - name: publish
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
