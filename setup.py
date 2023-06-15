@@ -7,7 +7,7 @@ setup(
     description="Testing PyPi",
     long_description=pathlib.Path("README.md").read_text(),
     long_description_content_type="text/markdown",
-    url="myurl",
+    url="equinor.com",
     use_scm_version={"write_to": "src/ruaj/testpypi/version.py"},
     author="ruaj",
     license="MIT",
