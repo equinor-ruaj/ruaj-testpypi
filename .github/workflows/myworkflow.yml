@@ -36,6 +36,7 @@ jobs:
 
   publish-job:
     name: publish job
+    needs: myjob
     permissions:
       id-token: write
     runs-on: ubuntu-latest
