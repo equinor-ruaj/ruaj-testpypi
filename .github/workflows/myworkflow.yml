@@ -11,6 +11,8 @@ on:
 jobs:
   myjob:
     name: My job
+    permissions:
+      id-token: write
     environment: production
     runs-on: ubuntu-latest
     steps:
@@ -25,11 +27,21 @@ jobs:
           python -m pip install --upgrade build
           python -m build
 
-      # TODO: publish should be separate job to minimize "permissions: id-token: write" scope
+      # # TODO: publish should be separate job to minimize "permissions: id-token: write" scope
+      # - name: publish
+      #   if: github.event_name == 'release'
+      #   uses: pypa/gh-action-pypi-publish@release/v1
+      #   with:
+      #     repository-url: https://test.pypi.org/legacy/
+
+  publish-job:
+    name: publish job
+    permissions:
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
       - name: publish
         if: github.event_name == 'release'
-        permissions:
-          id-token: write
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           repository-url: https://test.pypi.org/legacy/
