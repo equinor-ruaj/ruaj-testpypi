@@ -15,7 +15,6 @@ setup(
     classifiers=[
         "Programming Language :: Python :: 3.10"
     ],
-    author_email="myemail@something.com",
     entry_points={},
     install_requires=[],
     setup_requires=["setuptools_scm~=3.2"],
